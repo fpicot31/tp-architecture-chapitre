@@ -1,0 +1,64 @@
+
+Voici la demo complète d'une architecture client serveur 3 tiers avec le pattern MVC :
+
+Un serveur Node  MVC : un contrôleur, un model, et les vues
+Une base de données mongodb
+ 
+
+TP :
+
+1 Placez vous dans un répertoire de travail
+
+2 Recuperer les sources
+ git clone https://github.com/fpicot31/tp-architecture-chapitre.git
+
+3 installer nodemon
+ npm i -g nodemon
+
+4 installer express
+ npm install express
+
+5 lancer une base mongodb
+docker container run -d --name mongodb --mount source=mydb,target="//data//db" -p 27017:27017 mongo
+
+6 ouvrir la base mongodb
+docker container exec -it mongodb mongo
+
+7 creer une base de données, par exemple demo
+use demo
+
+db.createUser ( {user: "francois", pwd: "francois", roles: ["readWrite"] } )
+db.createCollection('chapters')
+db.chapters.insertMany([{title: 'mongoose', index : "1", nbrOfLessons: 20}, {title: 'devops', index : 
+"2", nbrOfLessons: 30}]);
+
+db.chapters.find({})
+db.chapters.findOne({title: 'devops'})
+
+8 Lancer le serveur node applicatif
+npm start
+
+9 Ouvrir le navigateur, vous verez apparaitre les infos que vous avez mis dans la base.
+ Vous pouvez ajouter des chapitres et des lessons depuis le navigateur pour les stocker en base.
+http://localhost:3000
+ 
+
+1 Essayer de retrouver le cheminement de connexion à la base de données dans le code source?
+
+  J'attends vos retours sur la réponse à cette question …
+
+2 Dites moi si vous avez réussi à faire la demo complète ?
+
+3 Faire le QCM avant Vendredi soir  https://www.wooclap.com/FRPHJD
+
+    N'oubliez pas de bien mettre votre nom et prénom avant de commencer
+
+ 
+
+Dans l'attente de vos retours,
+
+Bon WK à tous !!
+
+ 
+
+ 
