@@ -1,0 +1,42 @@
+# Installer docker + WSL2 pour windows
+https://docs.docker.com/desktop/windows/install/
+https://docs.microsoft.com/fr-fr/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+# Installation git bash : 
+https://git-scm.com
+
+# installer nodemon
+npm i -g nodemon
+
+# installer express
+npm install express
+
+# lancer une base mongodb
+docker container run -d --name mongodb --mount source=mydb,target="//data//db" -p 27017:27017 mongo
+
+# remplir la base mongodb
+docker container exec -it mongodb mongo
+
+use demo
+
+db.createUser ( {user: "francois", pwd: "francois", roles: ["readWrite"] } )
+db.createCollection('chapters')
+db.chapters.insertMany([{title: 'mongoose', index : "1", nbrOfLessons: 20}, {title: 'devops', index : 
+"2", nbrOfLessons: 30}]);
+
+db.chapters.find({})
+db.chapters.findOne({title: 'devops'})
+
+# Lancer le serveur node applicatif
+npm start
+
+# Ouvrer le navigateur
+http://localhost:3000
+
+# Utilisation de compass
+Aller dans C:\Users\FR21320\Documents\mesFormations\IPI\Lacanette\formation\Architecture client serveur\install\mongodb-compass-1.28.1-win32-x64
+Lancer MongoDBCompass
+Selectionner demo
+
+# L'url de connection de l'applicatif avec mongodb dans database/index.js :
+mongodb://francois:francois@localhost:27017/demo?retryWrites=true
