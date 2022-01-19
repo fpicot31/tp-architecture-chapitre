@@ -8,6 +8,13 @@ https://docs.microsoft.com/fr-fr/windows/wsl/install-manual#step-4---download-th
 # Installation git bash : 
 https://git-scm.com
 
+# Ouvrir un terminal avec bash
+control shift p, puis taper set default profil
+ouvrir un terminal
+# Recuperer les sources
+Placez vous dans un repertoire de travail
+git clone https://github.com/fpicot31/tp-architecture-chapitre.git
+
 # installer nodemon
 npm i -g nodemon
 
