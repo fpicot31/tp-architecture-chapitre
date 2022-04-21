@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -20,3 +21,6 @@ steps:
     npm install express
     npm run start
   displayName: 'npm install and start'
+
+ -script:
+    docker container run -d --name mongodb --mount source=mydb,target="//data//db" -p 27017:27017 mongo
