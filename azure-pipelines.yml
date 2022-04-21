@@ -22,6 +22,6 @@ steps:
     npm run start
   displayName: 'npm install and start'
 
- -script:
+ -script: |
     docker container run -d --name mongodb --mount source=mydb,target="//data//db" -p 27017:27017 mongo
     displayName: 'run mongo data base'
