@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  
+  # Database - Mongo DB
+  mongodb:
+    image: mongo
+    command: [--auth]
+    container_name: my-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: francois
+      MONGO_INITDB_ROOT_PASSWORD: francois
+      MONGO_INITDB_DATABASE: demo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      # si on veut persister sur le disque
+      # - ./mongo-volume:/data/db
