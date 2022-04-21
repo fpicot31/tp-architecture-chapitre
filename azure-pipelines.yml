@@ -12,7 +12,7 @@ pool:
 
 steps:
 - script: |
-    docker container run -d --name mongodb --mount source=mydb,target="//data//db" -p 27017:27017 mongo
+    docker compose up -d
   displayName: 'run mongo data base'
 
 - task: NodeTool@0
