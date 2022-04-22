@@ -1,4 +1,7 @@
 
+
+db.createUser ( {user: "francois", pwd: "francois", roles: ["readWrite"] } )
+
 db.createCollection('chapters');
 
 db.chapters.insertMany([
